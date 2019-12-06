@@ -1,0 +1,158 @@
+$overlay-darken: rgba(0, 0, 0, 0.3);
+$primary-color: rgb(243, 81, 81);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clr::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  background: linear-gradient($overlay-darken, $overlay-darken),
+    url("../img/bg.jpg") center center/cover;
+  font-family: Lato;
+  font-weight: 300;
+  position: relative;
+  height: 100vh;
+  color: #555;
+}
+
+.wrap {
+  width: 1100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 10px 50px $overlay-darken;
+  overflow: hidden;
+
+  .player {
+    &-0-panel,
+    &-1-panel {
+      width: 50%;
+      float: left;
+      height: 600px;
+      padding: 6rem;
+    }
+
+    &-name {
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 100;
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    &-score {
+      text-align: center;
+      font-size: 6rem;
+      font-weight: 100;
+      color: $primary-color;
+      top: 0;
+      right: 1rem;
+    }
+
+    &-cur-box {
+      background: $primary-color;
+      color: #fff;
+      width: 40%;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    &-cur-label {
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #222;
+    }
+
+    &-cur-score {
+      font-size: 2rem;
+    }
+  }
+
+  .active {
+    background: #f7f7f7;
+
+    .player {
+      &-name {
+        font-weight: 500;
+        // Draw a pointer on the left of active player
+        &:before {
+          content: "\2023";
+          font-size: 3rem;
+          position: absolute;
+          color: $primary-color;
+          top: 0;
+          left: 2rem;
+        }
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background 0.3s, color 0.2s, font-weight 0.2s;
+
+    &:hover {
+      font-weight: 400;
+      color: $primary-color;
+    }
+    &:focus {
+      outline: none;
+    }
+
+    i {
+      color: $primary-color;
+      display: inline-block;
+      margin-top: 0.1rem;
+      margin-right: 0.5rem;
+      line-height: 1;
+      vertical-align: text-top;
+    }
+  }
+
+  // Position buttons vertically
+  .btn {
+    &-new {
+      top: 5%;
+    }
+    &-roll {
+      top: 70%;
+    }
+    &-hold {
+      top: 80%;
+    }
+  }
+
+  .dice-img {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 110px;
+    box-shadow: 0.5rem 1rem 1.5rem rgba(0, 0, 0, 0.3);
+  }
+}

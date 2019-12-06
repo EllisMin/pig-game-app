@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pig Game |</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Local css -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- Ionic -->
+    <link
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="wrap clr">
+      <div class="player-0-panel active">
+        <div class="player-name" id="name-0">Player 1</div>
+        <div class="player-score" id="score-0">30</div>
+        <div class="player-cur-box">
+          <div class="player-cur-label">Current</div>
+          <div class="player-cur-score" id="cur-0">10</div>
+        </div>
+      </div>
+
+      <div class="player-1-panel">
+        <div class="player-name" id="name-1">Player 2</div>
+        <div class="player-score" id="score-1">70</div>
+        <div class="player-cur-box">
+          <div class="player-cur-label">Current</div>
+          <div class="player-cur-score" id="cur-1">9</div>
+        </div>
+      </div>
+
+      <button class="btn-new">
+        <i class="ion-ios-plus-outline"></i>New Game
+      </button>
+      <button class="btn-roll"><i class="ion-ios-loop"></i>Roll Dice</button>
+      <button class="btn-hold">
+        <i class="ion-ios-download-outline"></i>Hold
+      </button>
+
+      <img class='dice-img' src="./img/6.png" alt="diceimg" />
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -110,6 +110,8 @@ body {
     width: 110px;
     height: 110px;
     box-shadow: 0.5rem 1rem 1.5rem rgba(0, 0, 0, 0.3); }
+  .wrap .winner-text {
+    color: #f35151; }
 
 @keyframes fadeIn {
   /* Specify points in animation */

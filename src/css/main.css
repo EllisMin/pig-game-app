@@ -144,49 +144,50 @@ body {
     top: 70%; }
   .wrap .update-new-winning-score {
     top: 90%; }
-  .wrap .switch-container .switch {
+  .wrap .switch {
     position: absolute;
     top: 80%;
     left: 50%;
-    width: 60px;
-    height: 34px;
+    width: 20%;
+    height: 27px;
     color: #555;
-    text-align: center;
-    font-size: 1rem;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
     text-transform: uppercase;
     font-weight: 300;
     background: none;
-    border: none; }
-    .wrap .switch-container .switch input {
+    border: none;
+    margin-left: 1rem; }
+    .wrap .switch input {
       opacity: 0;
       width: 0;
       height: 0; }
-      .wrap .switch-container .switch input:checked + .slider {
+      .wrap .switch input:checked + .slider {
         background: #f35151; }
-      .wrap .switch-container .switch input:focus + .slider {
+      .wrap .switch input:focus + .slider {
         box-shadow: 0 0 1px #f35151; }
-      .wrap .switch-container .switch input:checked + .slider:before {
+      .wrap .switch input:checked + .slider:before {
         transform: translateX(26px);
         -webkit-transform: translateX(26px);
         -ms-transform: translateX(26px); }
-    .wrap .switch-container .switch .slider {
+    .wrap .switch .slider {
       position: absolute;
       cursor: pointer;
       top: 0;
-      left: 0;
-      right: 0;
+      left: 53%;
+      right: 22%;
       bottom: 0;
       background: #ccc;
       transition: 0.4s;
       -webkit-transition: 0.4s;
       border-radius: 34px; }
-      .wrap .switch-container .switch .slider:before {
+      .wrap .switch .slider:before {
         content: "";
         position: absolute;
-        height: 26px;
-        width: 26px;
+        height: 21px;
+        width: 21px;
         left: 0.2rem;
-        bottom: 0.2rem;
+        bottom: 0.21rem;
         background: #fff;
         transition: 0.4s;
         -webkit-transition: 0.4s;

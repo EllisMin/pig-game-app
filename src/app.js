@@ -1,28 +1,30 @@
 var scores, curTotalScore, activePlayer, isPlaying;
-
+var prevRollSix; // On rolling 6 in a row switches turn
 var winningScore = 15; // inclusive
 init();
 
+// Roll btn
 document.querySelector(".btn-roll").addEventListener("click", function() {
   var diceDOM = document.querySelector(".dice-img");
+
   // Remove animation
   diceDOM.style.animation = "none";
 
-  // 1. get rand# btwn 1 - 6
+  // get rand# btwn 1 - 6
   var dice = Math.floor(Math.random() * 6) + 1;
 
-  // 2. display dice with rand generated#
-
+  // display dice with rand generated#
   diceDOM.style.display = "block";
   diceDOM.src = "./img/" + dice + ".png";
 
-  // 3. update curTotalScore if rolled# wasn't 1
-  if (dice === 1) {
+  // Switch player when dice===1 or rolled six twice
+  if (dice === 1 || (prevRollSix && dice === 6)) {
     // Fade in effect
     diceDOM.style.animation = "fadeIn 1.5s forwards ease-in";
-
     switchPlayer();
   } else {
+    if (dice === 6) prevRollSix = true;
+    else prevRollSix = false;
     curTotalScore += dice;
     document.getElementById("cur-" + activePlayer).innerHTML = curTotalScore;
   }
@@ -76,6 +78,8 @@ function init() {
     nameDOM.classList.remove("winner-text");
   }
   activePlayer = 0;
+  rolledSix = false;
+
   // State variable
   // isPlaying = true;
 

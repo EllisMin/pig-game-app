@@ -86,13 +86,13 @@ body {
     cursor: pointer;
     font-weight: 300;
     transition: background 0.2s, color 0.2s, font-weight 0.2s; }
-    .wrap .btn-roll button:hover,
-    .wrap .btn-hold button:hover,
-    .wrap .btn-new button:hover {
+    .wrap .btn-roll:hover,
+    .wrap .btn-hold:hover,
+    .wrap .btn-new:hover {
       color: #f35151; }
-      .wrap .btn-roll button:hover i,
-      .wrap .btn-hold button:hover i,
-      .wrap .btn-new button:hover i {
+      .wrap .btn-roll:hover i,
+      .wrap .btn-hold:hover i,
+      .wrap .btn-new:hover i {
         transition: color 0.2s;
         color: rgba(243, 81, 81, 0.75); }
     .wrap .btn-roll:focus,
@@ -111,7 +111,6 @@ body {
   .wrap .update-new-winning-score {
     display: flex;
     position: absolute;
-    top: 90%;
     left: 50%;
     transform: translateX(-50%);
     text-transform: uppercase;
@@ -140,9 +139,58 @@ body {
   .wrap .btn-new {
     top: 5%; }
   .wrap .btn-roll {
-    top: 70%; }
+    top: 60%; }
   .wrap .btn-hold {
-    top: 80%; }
+    top: 70%; }
+  .wrap .update-new-winning-score {
+    top: 90%; }
+  .wrap .switch-container .switch {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    width: 60px;
+    height: 34px;
+    color: #555;
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    background: none;
+    border: none; }
+    .wrap .switch-container .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0; }
+      .wrap .switch-container .switch input:checked + .slider {
+        background: #f35151; }
+      .wrap .switch-container .switch input:focus + .slider {
+        box-shadow: 0 0 1px #f35151; }
+      .wrap .switch-container .switch input:checked + .slider:before {
+        transform: translateX(26px);
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px); }
+    .wrap .switch-container .switch .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ccc;
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      border-radius: 34px; }
+      .wrap .switch-container .switch .slider:before {
+        content: "";
+        position: absolute;
+        height: 26px;
+        width: 26px;
+        left: 0.2rem;
+        bottom: 0.2rem;
+        background: #fff;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        border-radius: 50%; }
   .wrap .dice-img {
     position: absolute;
     top: 30%;

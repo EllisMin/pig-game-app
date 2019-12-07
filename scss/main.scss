@@ -120,7 +120,7 @@ body {
     font-weight: 300;
     transition: background 0.2s, color 0.2s, font-weight 0.2s;
 
-    button:hover {
+    &:hover {
       color: $primary-color;
 
       i {
@@ -145,7 +145,6 @@ body {
   .update-new-winning-score {
     display: flex;
     position: absolute;
-    top: 90%;
     left: 50%;
     transform: translateX(-50%);
     text-transform: uppercase;
@@ -186,10 +185,81 @@ body {
       top: 5%;
     }
     &-roll {
-      top: 70%;
+      top: 60%;
     }
     &-hold {
+      top: 70%;
+    }
+  }
+  .update-new-winning-score {
+    top: 90%;
+  }
+
+  .switch-container {
+
+    
+
+    // Switch to use two dices
+    .switch {
+      position: absolute;
       top: 80%;
+      left: 50%;
+  
+      width: 60px;
+      height: 34px;
+      color: $dark-color;
+      text-align: center;
+      // transform: translateX(-50%);
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      // cursor: pointer;
+      background: none;
+      border: none;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+          background: $primary-color;
+        }
+        &:focus + .slider {
+          box-shadow: 0 0 1px $primary-color;
+        }
+        &:checked + .slider:before {
+          transform: translateX(26px);
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+        }
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #ccc;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        border-radius: 34px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          height: 26px;
+          width: 26px;
+          left: 0.2rem;
+          bottom: 0.2rem;
+          background: #fff;
+          transition: 0.4s;
+          -webkit-transition: 0.4s;
+          border-radius: 50%;
+        }
+      }
     }
   }
 

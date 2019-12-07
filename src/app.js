@@ -1,6 +1,6 @@
 var scores, curTotalScore, activePlayer, isPlaying;
 var prevRollSix; // On rolling 6 in a row switches turn
-var winningScore = 15; // inclusive
+var winningScore = 50; // inclusive
 init();
 
 // Roll btn
@@ -93,4 +93,23 @@ function init() {
   document.getElementById("score-1").textContent = "0";
   document.getElementById("cur-0").textContent = "0";
   document.getElementById("cur-1").textContent = "0";
+  var inputDOM = document.getElementById("new-score-input");
+  inputDOM.placeholder = "winning score: " + winningScore;
+  inputDOM.value = "";
 }
+// Update new score
+document.querySelector(".btn-update").addEventListener("click", function() {
+  var inputDOM = document.getElementById("new-score-input");
+  var input = inputDOM.value;
+
+  // input: undefined, 0, null, or "" are COERCED to false
+  // isNan: return true if variable does NOT contain a valid number; 123 and '123' are both valid
+  if (input && !isNaN(input)) {
+    winningScore = input;
+    // Update UI
+    inputDOM.placeholder = "winning score: " + winningScore;
+    inputDOM.value = "";
+  } else {
+    alert("Type in number to update a new winning score");
+  }
+});

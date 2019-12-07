@@ -71,9 +71,11 @@ body {
         top: 0;
         left: 2.5rem;
         margin-top: -0.3rem; }
-  .wrap button {
+  .wrap .btn-roll,
+  .wrap .btn-hold,
+  .wrap .btn-new {
     position: absolute;
-    width: 200px;
+    width: 20%;
     left: 50%;
     transform: translateX(-50%);
     color: #555;
@@ -84,20 +86,57 @@ body {
     cursor: pointer;
     font-weight: 300;
     transition: background 0.2s, color 0.2s, font-weight 0.2s; }
-    .wrap button:hover {
+    .wrap .btn-roll button:hover,
+    .wrap .btn-hold button:hover,
+    .wrap .btn-new button:hover {
       color: #f35151; }
-      .wrap button:hover i {
+      .wrap .btn-roll button:hover i,
+      .wrap .btn-hold button:hover i,
+      .wrap .btn-new button:hover i {
         transition: color 0.2s;
         color: rgba(243, 81, 81, 0.75); }
-    .wrap button:focus {
+    .wrap .btn-roll:focus,
+    .wrap .btn-hold:focus,
+    .wrap .btn-new:focus {
       outline: none; }
-    .wrap button i {
+    .wrap .btn-roll i,
+    .wrap .btn-hold i,
+    .wrap .btn-new i {
       color: rgba(243, 81, 81, 0.6);
       display: inline-block;
       margin-top: 0.29rem;
       margin-right: 0.3rem;
       line-height: 1;
       vertical-align: text-top; }
+  .wrap .update-new-winning-score {
+    display: flex;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    padding: 0.5rem; }
+    .wrap .update-new-winning-score #new-score-input {
+      color: #555;
+      font-size: 0.8rem;
+      transition: none;
+      text-align: center; }
+      .wrap .update-new-winning-score #new-score-input:focus {
+        outline: none; }
+    .wrap .update-new-winning-score .btn-update {
+      background: none;
+      border: 1px solid #f4f4f4;
+      color: #555;
+      width: 4rem;
+      padding: 0.5rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      text-align: center; }
+      .wrap .update-new-winning-score .btn-update:focus {
+        outline: none; }
+      .wrap .update-new-winning-score .btn-update:hover {
+        color: #f35151; }
   .wrap .btn-new {
     top: 5%; }
   .wrap .btn-roll {

@@ -1,6 +1,7 @@
 $overlay-darken: rgba(0, 0, 0, 0.3);
 $primary-color: rgb(243, 81, 81);
 $primary-color-light: rgba(243, 81, 81, 0.6);
+$dark-color: #555;
 
 * {
   margin: 0;
@@ -21,7 +22,7 @@ body {
   font-weight: 300;
   position: relative;
   height: 100vh;
-  color: #555;
+  color: $dark-color;
 }
 
 .wrap {
@@ -103,12 +104,14 @@ body {
     }
   }
 
-  button {
+  .btn-roll,
+  .btn-hold,
+  .btn-new {
     position: absolute;
-    width: 200px;
+    width: 20%;
     left: 50%;
     transform: translateX(-50%);
-    color: #555;
+    color: $dark-color;
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -117,7 +120,7 @@ body {
     font-weight: 300;
     transition: background 0.2s, color 0.2s, font-weight 0.2s;
 
-    &:hover {
+    button:hover {
       color: $primary-color;
 
       i {
@@ -136,9 +139,45 @@ body {
       margin-right: 0.3rem;
       line-height: 1;
       vertical-align: text-top;
-
     }
+  }
+  // Position input label and update btn
+  .update-new-winning-score {
+    display: flex;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    padding: 0.5rem;
     
+    // input label
+    #new-score-input {
+      color: $dark-color;
+      font-size: 0.8rem;
+      transition: none;
+      text-align: center;
+      &:focus {
+        outline: none;
+      }
+    }
+    .btn-update {
+      background: none;
+      border: 1px solid #f4f4f4;
+      color: $dark-color;
+      width: 4rem;
+      padding: 0.5rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      text-align: center;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        color: $primary-color;
+      }
+    }
   }
 
   // Position buttons vertically

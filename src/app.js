@@ -1,5 +1,6 @@
 var scores, curTotalScore, activePlayer, isPlaying;
 var prevRollSix; // On rolling 6 in a row switches turn
+var diceTwo;
 var winningScore = 50; // inclusive
 init();
 
@@ -13,29 +14,65 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
   void diceDOM.offsetWidth; // used to restart animation
 
   // get rand# btwn 1 - 6
-  var dice = Math.floor(Math.random() * 6) + 1;
+  // var dice = Math.floor(Math.random() * 6) + 1;
+  var dice = Math.floor(Math.random() * 3) + 4; ///
 
   // display dice with rand generated#
   diceDOM.style.display = "block";
   diceDOM.src = "./img/" + dice + ".png";
 
-  if (prevRollSix && dice === 6) {
-    // player loses total score
-    scores[activePlayer] = 0;
-    document.getElementById("score-" + activePlayer).textContent = "0";
-    diceDOM.classList.add("fade-in");
-    switchPlayer();
-  } else if (dice === 1) {
-    // Fade in effect
-    diceDOM.classList.add("fade-in");
-    switchPlayer();
-  } else {
-    if (dice === 6) prevRollSix = true;
-    else prevRollSix = false;
-    // roll animation
-    diceDOM.classList.add("roll");
-    curTotalScore += dice;
-    document.getElementById("cur-" + activePlayer).innerHTML = curTotalScore;
+  if (!diceTwo) {
+    if (prevRollSix && dice === 6) {
+      // player loses total score
+      scores[activePlayer] = 0;
+      document.getElementById("score-" + activePlayer).textContent = "0";
+      diceDOM.classList.add("fade-in");
+      switchPlayer();
+    } else if (dice === 1) {
+      // Fade in effect
+      diceDOM.classList.add("fade-in");
+      switchPlayer();
+    } else {
+      if (dice === 6) prevRollSix = true;
+      else prevRollSix = false;
+      // roll animation
+      diceDOM.classList.add("roll");
+      curTotalScore += dice;
+      document.getElementById("cur-" + activePlayer).innerHTML = curTotalScore;
+    }
+  }
+  // Playing with 2 dices
+  else {
+    var dice2DOM = document.querySelector(".dice-img-2");
+    dice2DOM.classList.remove("fade-in");
+    dice2DOM.classList.remove("roll");
+    void dice2DOM.offsetWidth;
+
+    var dice2 = Math.floor(Math.random() * 6) + 1;
+    dice2DOM.style.display = "block";
+    dice2DOM.src = "./img/" + dice2 + ".png";
+
+    if (prevRollSix && (dice === 6 || dice2 === 6)) {
+      // player loses total score
+      scores[activePlayer] = 0;
+      document.getElementById("score-" + activePlayer).textContent = "0";
+      diceDOM.classList.add("fade-in");
+      dice2DOM.classList.add("fade-in");
+      switchPlayer();
+    } else if (dice === 1 || dice2 === 1) {
+      // Fade in effect
+      diceDOM.classList.add("fade-in");
+      dice2DOM.classList.add("fade-in");
+      switchPlayer();
+    } else {
+      if (dice === 6 || dice2 === 6) prevRollSix = true;
+      else prevRollSix = false;
+      // roll animation
+      diceDOM.classList.add("roll");
+      dice2DOM.classList.add("roll");
+      curTotalScore = curTotalScore + dice + dice2;
+      document.getElementById("cur-" + activePlayer).innerHTML = curTotalScore;
+    }
   }
 });
 
@@ -70,6 +107,8 @@ function switchPlayer() {
   // Update active class, alternative to remove/add class
   document.querySelector(".player-0-panel").classList.toggle("active");
   document.querySelector(".player-1-panel").classList.toggle("active");
+
+  prevRollSix = false;
 }
 
 // New Game
@@ -103,6 +142,10 @@ function init() {
   var inputDOM = document.getElementById("new-score-input");
   inputDOM.placeholder = "winning score: " + winningScore;
   inputDOM.value = "";
+
+  useOneDice();
+  // Uncheck
+  document.getElementById("modified-checkbox").checked = false;
 }
 // Update new score
 document.querySelector(".btn-update").addEventListener("click", function() {
@@ -120,3 +163,27 @@ document.querySelector(".btn-update").addEventListener("click", function() {
     alert("Type in number to update a new winning score");
   }
 });
+
+// slider to use 2 dices
+document
+  .getElementById("modified-checkbox")
+  .addEventListener("change", function() {
+    // Add a dice
+    if (this.checked) {
+      diceTwo = true;
+      document.querySelector(".dice-img-2").src = "./img/7.png";
+      document.querySelector(".dice-img").style.display = "block";
+      document.querySelector(".dice-img-2").style.display = "block";
+      document.querySelector(".dice-container").classList.add("separate-dice");
+    }
+    // Back to one dice
+    else {
+      useOneDice();
+    }
+  });
+
+function useOneDice() {
+  document.querySelector(".dice-img-2").style.display = "none";
+  diceTwo = false;
+  document.querySelector(".dice-container").classList.remove("separate-dice");
+}

@@ -2,6 +2,7 @@ $overlay-darken: rgba(0, 0, 0, 0.3);
 $primary-color: rgb(243, 81, 81);
 $primary-color-light: rgba(243, 81, 81, 0.6);
 $dark-color: #555;
+$dice-size: 80px;
 
 * {
   margin: 0;
@@ -37,7 +38,7 @@ body {
       display: flex;
       flex-direction: column;
       height: 600px;
-      padding: 6rem;
+      padding: 7rem;
     }
 
     &-name {
@@ -47,6 +48,7 @@ body {
       letter-spacing: 2px;
       font-weight: 100;
       position: relative;
+      margin-bottom: 1rem;
     }
 
     &-score {
@@ -60,7 +62,7 @@ body {
       background: rgba(243, 81, 81, 0.9);
       color: #fff;
       width: 77%;
-      margin: 1.5rem auto;
+      margin: 4rem auto;
       padding: 1rem;
       text-align: center;
     }
@@ -224,7 +226,7 @@ body {
       cursor: pointer;
       top: 0;
       left: 63%;
-      right: 10%;
+      right: 12%;
       bottom: 0;
       background: #ccc;
       transition: 0.4s;
@@ -253,8 +255,8 @@ body {
 
     .dice-img,
     .dice-img-2 {
-      width: 100px;
-      height: 100px;
+      width: $dice-size;
+      height: $dice-size;
       box-shadow: 0.5rem 1rem 1.5rem rgba(0, 0, 0, 0.3);
     }
   }
@@ -267,7 +269,7 @@ body {
 .separate-dice {
   // Separate dices
   display: flex;
-  width: 250px;
+  width: $dice-size * 2 + 35px;
   justify-content: space-between;
 }
 

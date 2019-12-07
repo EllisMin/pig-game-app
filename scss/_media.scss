@@ -1,8 +1,46 @@
 // Tablets & smaller
-@media (max-width: 800px) {
-    
+@media (max-width: 821px) {
+  * {
+    // font-size: 10px;
+  }
+  .wrap {
+    .player {
+      &-0-panel,
+      &-1-panel {
+        padding: 7rem;
+      }
+      &-name {
+        font-size: 2rem;
+      }
+    }
+    .active .player-name:before {
+      font-size: 2rem;
+    }
+  }
 }
 
 // Smartphones
 @media (max-width: 500px) {
+  // .wrap {
+  //     flex-direction: column;
+  //     height: 100vh;
+  // }
+}
+
+// Landscape
+@media (max-height: 580px) {
+  .wrap {
+    .player {
+      &-0-panel,
+      &-1-panel {
+        height: 375px;
+      }
+      &-name {
+          margin-bottom: 0;
+      }
+      &-cur-box {
+          margin: 1rem auto;
+      }
+    }
+  }
 }

@@ -26,14 +26,15 @@ body {
     display: flex;
     flex-direction: column;
     height: 600px;
-    padding: 6rem; }
+    padding: 7rem; }
   .wrap .player-name {
     font-size: 2.5rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
-    position: relative; }
+    position: relative;
+    margin-bottom: 1rem; }
   .wrap .player-score {
     text-align: center;
     font-size: 6rem;
@@ -43,7 +44,7 @@ body {
     background: rgba(243, 81, 81, 0.9);
     color: #fff;
     width: 77%;
-    margin: 1.5rem auto;
+    margin: 4rem auto;
     padding: 1rem;
     text-align: center; }
   .wrap .player-cur-label {
@@ -168,7 +169,7 @@ body {
       cursor: pointer;
       top: 0;
       left: 63%;
-      right: 10%;
+      right: 12%;
       bottom: 0;
       background: #ccc;
       transition: 0.4s;
@@ -192,15 +193,15 @@ body {
     transform: translateX(-50%); }
     .wrap .dice-container .dice-img,
     .wrap .dice-container .dice-img-2 {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       box-shadow: 0.5rem 1rem 1.5rem rgba(0, 0, 0, 0.3); }
   .wrap .winner-text {
     color: #f35151; }
 
 .separate-dice {
   display: flex;
-  width: 250px;
+  width: 195px;
   justify-content: space-between; }
 
 .fade-in {
@@ -221,3 +222,19 @@ body {
     transform: rotate(180deg) translateY(20%); }
   75% {
     transform: rotate(270deg); } }
+
+@media (max-width: 821px) {
+  .wrap .player-0-panel, .wrap .player-1-panel {
+    padding: 7rem; }
+  .wrap .player-name {
+    font-size: 2rem; }
+  .wrap .active .player-name:before {
+    font-size: 2rem; } }
+
+@media (max-height: 580px) {
+  .wrap .player-0-panel, .wrap .player-1-panel {
+    height: 375px; }
+  .wrap .player-name {
+    margin-bottom: 0; }
+  .wrap .player-cur-box {
+    margin: 1rem auto; } }

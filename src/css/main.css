@@ -83,17 +83,19 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 300;
-    transition: background 0.3s, color 0.2s, font-weight 0.2s; }
+    transition: background 0.2s, color 0.2s, font-weight 0.2s; }
     .wrap button:hover {
-      font-weight: 400;
       color: #f35151; }
+      .wrap button:hover i {
+        transition: color 0.2s;
+        color: rgba(243, 81, 81, 0.75); }
     .wrap button:focus {
       outline: none; }
     .wrap button i {
-      color: #f35151;
+      color: rgba(243, 81, 81, 0.6);
       display: inline-block;
-      margin-top: 0.1rem;
-      margin-right: 0.5rem;
+      margin-top: 0.29rem;
+      margin-right: 0.3rem;
       line-height: 1;
       vertical-align: text-top; }
   .wrap .btn-new {

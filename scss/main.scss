@@ -1,5 +1,6 @@
 $overlay-darken: rgba(0, 0, 0, 0.3);
 $primary-color: rgb(243, 81, 81);
+$primary-color-light: rgba(243, 81, 81, 0.6);
 
 * {
   margin: 0;
@@ -114,24 +115,30 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 300;
-    transition: background 0.3s, color 0.2s, font-weight 0.2s;
+    transition: background 0.2s, color 0.2s, font-weight 0.2s;
 
     &:hover {
-      font-weight: 400;
       color: $primary-color;
+
+      i {
+        transition: color 0.2s;
+        color: rgba(243, 81, 81, 0.75);
+      }
     }
     &:focus {
       outline: none;
     }
 
     i {
-      color: $primary-color;
+      color: $primary-color-light;
       display: inline-block;
-      margin-top: 0.1rem;
-      margin-right: 0.5rem;
+      margin-top: 0.29rem;
+      margin-right: 0.3rem;
       line-height: 1;
       vertical-align: text-top;
+
     }
+    
   }
 
   // Position buttons vertically

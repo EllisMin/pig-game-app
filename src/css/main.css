@@ -154,9 +154,21 @@ body {
   .wrap .winner-text {
     color: #f35151; }
 
+.fade-in {
+  animation: fadeIn 1.5s forwards ease-in; }
+
+.roll {
+  animation: roll 0.5s ease-in; }
+
 @keyframes fadeIn {
   /* Specify points in animation */
   from {
     opacity: 1; }
   to {
     opacity: 0; } }
+
+@keyframes roll {
+  50% {
+    transform: rotate(180deg) translateY(20%); }
+  75% {
+    transform: rotate(270deg); } }

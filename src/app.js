@@ -8,7 +8,9 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
   var diceDOM = document.querySelector(".dice-img");
 
   // Remove animation
-  diceDOM.style.animation = "none";
+  diceDOM.classList.remove("fade-in");
+  diceDOM.classList.remove("roll");
+  void diceDOM.offsetWidth; // used to restart animation
 
   // get rand# btwn 1 - 6
   var dice = Math.floor(Math.random() * 6) + 1;
@@ -17,14 +19,21 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
   diceDOM.style.display = "block";
   diceDOM.src = "./img/" + dice + ".png";
 
-  // Switch player when dice===1 or rolled six twice
-  if (dice === 1 || (prevRollSix && dice === 6)) {
+  if (prevRollSix && dice === 6) {
+    // player loses total score
+    scores[activePlayer] = 0;
+    document.getElementById("score-" + activePlayer).textContent = "0";
+    diceDOM.classList.add("fade-in");
+    switchPlayer();
+  } else if (dice === 1) {
     // Fade in effect
-    diceDOM.style.animation = "fadeIn 1.5s forwards ease-in";
+    diceDOM.classList.add("fade-in");
     switchPlayer();
   } else {
     if (dice === 6) prevRollSix = true;
     else prevRollSix = false;
+    // roll animation
+    diceDOM.classList.add("roll");
     curTotalScore += dice;
     document.getElementById("cur-" + activePlayer).innerHTML = curTotalScore;
   }
@@ -41,12 +50,10 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
     var nameDOM = document.getElementById("name-" + activePlayer);
     nameDOM.innerHTML = "Winner!";
     nameDOM.classList.add("winner-text");
-
     // isPlaying = false;
     // Hide UIs
     document.querySelector(".btn-roll").style.display = "none";
     document.querySelector(".btn-hold").style.display = "none";
-    document.querySelector(".dice-img").style.display = "none";
   } else {
     switchPlayer();
   }
@@ -63,6 +70,9 @@ function switchPlayer() {
   // Update active class, alternative to remove/add class
   document.querySelector(".player-0-panel").classList.toggle("active");
   document.querySelector(".player-1-panel").classList.toggle("active");
+
+  // Hide dice
+//   document.querySelector(".dice-img").style.display = "none";
 }
 
 // New Game

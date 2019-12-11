@@ -14,8 +14,8 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
   void diceDOM.offsetWidth; // used to restart animation
 
   // get rand# btwn 1 - 6
-  // var dice = Math.floor(Math.random() * 6) + 1;
-  var dice = Math.floor(Math.random() * 3) + 4; ///
+  var dice = Math.floor(Math.random() * 6) + 1;
+  // var dice = Math.floor(Math.random() * 3) + 4; ///
 
   // display dice with rand generated#
   diceDOM.style.display = "block";

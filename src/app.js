@@ -9,7 +9,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
   var diceDOM = document.querySelector(".dice-img");
 
   // Remove animation
-  diceDOM.classList.remove("fade-in");
+  diceDOM.classList.remove("fade-out");
   diceDOM.classList.remove("roll");
   void diceDOM.offsetWidth; // used to restart animation
 
@@ -26,11 +26,11 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
       // player loses total score
       scores[activePlayer] = 0;
       document.getElementById("score-" + activePlayer).textContent = "0";
-      diceDOM.classList.add("fade-in");
+      diceDOM.classList.add("fade-out");
       switchPlayer();
     } else if (dice === 1) {
       // Fade in effect
-      diceDOM.classList.add("fade-in");
+      diceDOM.classList.add("fade-out");
       switchPlayer();
     } else {
       if (dice === 6) prevRollSix = true;
@@ -44,7 +44,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
   // Playing with 2 dices
   else {
     var dice2DOM = document.querySelector(".dice-img-2");
-    dice2DOM.classList.remove("fade-in");
+    dice2DOM.classList.remove("fade-out");
     dice2DOM.classList.remove("roll");
     void dice2DOM.offsetWidth;
 
@@ -56,13 +56,13 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
       // player loses total score
       scores[activePlayer] = 0;
       document.getElementById("score-" + activePlayer).textContent = "0";
-      diceDOM.classList.add("fade-in");
-      dice2DOM.classList.add("fade-in");
+      diceDOM.classList.add("fade-out");
+      dice2DOM.classList.add("fade-out");
       switchPlayer();
     } else if (dice === 1 || dice2 === 1) {
       // Fade in effect
-      diceDOM.classList.add("fade-in");
-      dice2DOM.classList.add("fade-in");
+      diceDOM.classList.add("fade-out");
+      dice2DOM.classList.add("fade-out");
       switchPlayer();
     } else {
       if (dice === 6 || dice2 === 6) prevRollSix = true;
@@ -181,6 +181,15 @@ document
       useOneDice();
     }
   });
+
+// Show rules
+document.querySelector(".btn-rule").addEventListener("click", () => {
+  document.getElementById("rule-container").classList.add("show-rules");
+});
+// close rules
+document.querySelector(".btn-close").addEventListener("click", () => {
+  document.getElementById("rule-container").classList.remove("show-rules");
+});
 
 function useOneDice() {
   document.querySelector(".dice-img-2").style.display = "none";

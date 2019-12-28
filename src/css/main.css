@@ -67,7 +67,8 @@ body {
         color: #f35151; }
   .wrap .btn-roll,
   .wrap .btn-hold,
-  .wrap .btn-new {
+  .wrap .btn-new,
+  .wrap .btn-rule {
     position: absolute;
     width: 20%;
     left: 50%;
@@ -82,20 +83,24 @@ body {
     transition: background 0.2s, color 0.2s, font-weight 0.2s; }
     .wrap .btn-roll:hover,
     .wrap .btn-hold:hover,
-    .wrap .btn-new:hover {
+    .wrap .btn-new:hover,
+    .wrap .btn-rule:hover {
       color: #f35151; }
       .wrap .btn-roll:hover i,
       .wrap .btn-hold:hover i,
-      .wrap .btn-new:hover i {
+      .wrap .btn-new:hover i,
+      .wrap .btn-rule:hover i {
         transition: color 0.2s;
         color: rgba(243, 81, 81, 0.75); }
     .wrap .btn-roll:focus,
     .wrap .btn-hold:focus,
-    .wrap .btn-new:focus {
+    .wrap .btn-new:focus,
+    .wrap .btn-rule:focus {
       outline: none; }
     .wrap .btn-roll i,
     .wrap .btn-hold i,
-    .wrap .btn-new i {
+    .wrap .btn-new i,
+    .wrap .btn-rule i {
       color: rgba(243, 81, 81, 0.6);
       display: inline-block;
       margin-top: 0.29rem;
@@ -138,6 +143,12 @@ body {
     top: 70%; }
   .wrap .update-new-winning-score {
     top: 90%; }
+  .wrap .btn-rule {
+    left: 84%;
+    transform: translateX(0);
+    right: 10%;
+    bottom: 3%;
+    font-size: 1.2rem; }
   .wrap .switch {
     position: absolute;
     top: 85%;
@@ -198,19 +209,61 @@ body {
       box-shadow: 0.5rem 1rem 1.5rem rgba(0, 0, 0, 0.3); }
   .wrap .winner-text {
     color: #f35151; }
+  .wrap .rule {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; }
+    .wrap .rule-header, .wrap .rule-list {
+      color: #fff; }
+    .wrap .rule-header {
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center; }
+    .wrap .rule-list {
+      list-style: none;
+      text-align: start;
+      margin-left: 2rem;
+      font-size: 1rem; }
+      .wrap .rule-list li {
+        margin-bottom: 1rem; }
+    .wrap .rule .btn-close {
+      align-self: flex-end;
+      background: none;
+      color: #fff;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer; }
+      .wrap .rule .btn-close:active {
+        transition: transform 0.2s;
+        transform: translateY(-3px); }
+      .wrap .rule .btn-close:focus {
+        outline: none; }
 
 .separate-dice {
   display: flex;
   width: 195px;
   justify-content: space-between; }
 
-.fade-in {
-  animation: fadeIn 1.5s forwards ease-in; }
+.fade-out {
+  animation: fadeOut 1.5s forwards ease-in; }
 
 .roll {
   animation: roll 0.4s ease-in; }
 
-@keyframes fadeIn {
+.show-rules {
+  animation: showRules 0.5s forwards ease-in; }
+
+@keyframes fadeOut {
   /* Specify points in animation */
   from {
     opacity: 1; }
@@ -222,6 +275,15 @@ body {
     transform: rotate(180deg) translateY(20%); }
   75% {
     transform: rotate(270deg); } }
+
+@keyframes showRules {
+  from {
+    scale: 0.1;
+    transform: rotate(40deg); }
+  to {
+    visibility: visible;
+    opacity: 1;
+    scale: 1; } }
 
 @media (max-width: 821px) {
   .wrap .player-0-panel, .wrap .player-1-panel {

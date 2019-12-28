@@ -42,21 +42,37 @@
       <button class="btn-new"><i class="fas fa-plus fa-xs"></i>New Game</button>
       <button class="btn-roll"><i class="fas fa-dice fa-xs"></i>Roll</button>
       <button class="btn-hold"><i class="fas fa-pause fa-xs"></i>Hold</button>
-
+      <button class="btn-rule">
+        <i class="fas fa-question fa-xs"></i>Rule
+      </button>
       <!-- Switch -->
-        <label class="switch">Two Dices
-          <input type="checkbox" id='modified-checkbox'>
-          <span class="slider"></span>
-        </label>
-      
-      
+      <label class="switch"
+        >Two Dices
+        <input type="checkbox" id="modified-checkbox" />
+        <span class="slider"></span>
+      </label>
+
       <div class="update-new-winning-score">
-          <input text='text' placeholder="winning score" id='new-score-input'>
-            <button class='btn-update'>update</button>
+        <input text="text" placeholder="winning score" id="new-score-input" />
+        <button class="btn-update">update</button>
       </div>
       <div class="dice-container">
         <img class="dice-img" src="./img/7.png" alt="diceimg" />
         <img class="dice-img-2" src="./img/7.png" alt="diceimg" />
+      </div>
+      <div class="rule" id='rule-container'>
+        <button class="btn-close">X</button>
+        <h1 class="rule-header">How to play</h1>
+        <ul class="rule-list">
+          <li>Keep rolling the dice</li>
+          <li>Hold to maintain your current score</li>
+          <li>
+            Rule 1: If you roll 1, you will lose current score & it will be next
+            player's turn
+          </li>
+          <li>Rule 2: If you roll 6 twice in a row, you will lose your TOTAL score</li>
+          <li>You can change winning score</li>
+        </ul>
       </div>
     </div>
 

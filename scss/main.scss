@@ -100,7 +100,8 @@ body {
 
   .btn-roll,
   .btn-hold,
-  .btn-new {
+  .btn-new,
+  .btn-rule {
     position: absolute;
     width: 20%;
     left: 50%;
@@ -135,6 +136,7 @@ body {
       vertical-align: text-top;
     }
   }
+
   // Position input label and update btn
   .update-new-winning-score {
     display: flex;
@@ -185,8 +187,17 @@ body {
       top: 70%;
     }
   }
+
   .update-new-winning-score {
     top: 90%;
+  }
+  // Position rule button
+  .btn-rule {
+    left: 84%;
+    transform: translateX(0);
+    right: 10%;
+    bottom: 3%;
+    font-size: 1.2rem;
   }
 
   // Switch to use two dices
@@ -264,6 +275,55 @@ body {
   .winner-text {
     color: $primary-color;
   }
+  .rule {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    &-header,
+    &-list {
+      color: #fff;
+    }
+    &-header {
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center;
+    }
+    &-list {
+      list-style: none;
+      text-align: start;
+      margin-left: 2rem;
+      font-size: 1rem;
+      li {
+        margin-bottom: 1rem;
+      }
+    }
+    .btn-close {
+      align-self: flex-end;
+      background: none;
+      color: #fff;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      &:active {
+        transition: transform 0.2s;
+        transform: translateY(-3px);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }
 
 .separate-dice {
@@ -273,14 +333,17 @@ body {
   justify-content: space-between;
 }
 
-.fade-in {
-  animation: fadeIn 1.5s forwards ease-in;
+.fade-out {
+  animation: fadeOut 1.5s forwards ease-in;
 }
 .roll {
   animation: roll 0.4s ease-in;
 }
-// Fade in dice1
-@keyframes fadeIn {
+.show-rules {
+  animation: showRules 0.5s forwards ease-in;
+}
+// Fade out dice1
+@keyframes fadeOut {
   /* Specify points in animation */
   from {
     opacity: 1;
@@ -297,6 +360,20 @@ body {
   }
   75% {
     transform: rotate(270deg);
+  }
+}
+
+@keyframes showRules {
+  from {
+    scale: 0.1;
+    transform: rotate(40deg);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    // transform: rotate(360deg);
   }
 }
 
